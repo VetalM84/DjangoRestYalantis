@@ -1,13 +1,21 @@
 from django.shortcuts import render
 
+from rest_framework import viewsets
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Driver, Vehicle
+from .serializers import DriverSerializer, VehicleSerializer
 
 
-def home(request):
-    drivers = Driver.objects.all()
-    vehicles = Vehicle.objects.all()
-    context = {'drivers': drivers, 'vehicles': vehicles}
-    return render(request=request, template_name='car_park/home.html', context=context)
+class DriverList(generics.ListCreateAPIView):
+    queryset = Driver.objects.all()
+    serializer_class = DriverSerializer
+
+
+class VehicleList(generics.ListCreateAPIView):
+    queryset = Vehicle.objects.all()
+    serializer_class = VehicleSerializer
+
+

@@ -1,7 +1,12 @@
-from django.urls import path
+from django.urls import path, include
 
-from car_park import views
+from rest_framework import routers
+
+from .views import *
 
 urlpatterns = [
-    path('', views.home, name='home_page'),
+    path('drivers/driver/', DriverList.as_view()),
+    # path('drivers/driver/<driver_id>/', DriverList.as_view()),
+    path('vehicles/vehicle/', VehicleList.as_view()),
+    # path('vehicles/vehicle/<vehicle_id>/', VehicleList.as_view()),
 ]

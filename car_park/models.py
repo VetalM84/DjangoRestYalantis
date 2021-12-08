@@ -9,7 +9,7 @@ class Driver(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Обновлен')
 
     def __str__(self):
-        return self.first_name, self.last_name
+        return ' '.join([self.first_name, self.last_name])
 
     class Meta:
         verbose_name = 'Водитель'
@@ -18,19 +18,19 @@ class Driver(models.Model):
 
 
 class Vehicle(models.Model):
-    driver_id = models.ForeignKey('Driver', on_delete=models.CASCADE, verbose_name="Водитель")
+    driver_id = models.ForeignKey('Driver', related_name='driver', on_delete=models.CASCADE, verbose_name="Водитель")
     make = models.CharField(max_length=30, verbose_name='Марка')
     model = models.CharField(max_length=50, verbose_name='Модель')
     # format example "AA 1234 OO"
-    plate_number = models.CharField(validators=[RegexValidator(r'^[A-Z]{2} ?[0-9]{4} ?[A-Z]{2}$/gm')],
+    plate_number = models.CharField(validators=[RegexValidator("[A-ZА-Я]{2}\s[0-9]{4}\s[A-ZА-Я]{2}")],
                                     max_length=10, verbose_name='Гос.номер')
     created_at = models.DateField(auto_now_add=True, verbose_name='Создана')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Обновлена')
 
     def __str__(self):
-        return self.make, self.model, self.plate_number
+        return ' '.join([self.make, self.model, self.plate_number])
 
     class Meta:
-        verbose_name = 'Водитель'
-        verbose_name_plural = 'Водители'
+        verbose_name = 'Автомобиль'
+        verbose_name_plural = 'Автомобили'
         ordering = ['id']
