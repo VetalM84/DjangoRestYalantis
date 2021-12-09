@@ -18,7 +18,8 @@ class Driver(models.Model):
 
 
 class Vehicle(models.Model):
-    driver_id = models.ForeignKey('Driver', related_name='driver', on_delete=models.CASCADE, verbose_name="Водитель")
+    driver_id = models.ForeignKey('Driver', related_name='driver', on_delete=models.SET_NULL,
+                                  null=True, verbose_name="Водитель")
     make = models.CharField(max_length=30, verbose_name='Марка')
     model = models.CharField(max_length=50, verbose_name='Модель')
     # format example "AA 1234 OO"
