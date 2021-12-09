@@ -10,6 +10,10 @@ class DriverSerializer(serializers.ModelSerializer):
 
 
 class VehicleSerializer(serializers.ModelSerializer):
+    # ReadOnlyField — это класс, возвращающий данные без изменения.
+    # В этом случае он используется для возвращения поля username вместо стандартного id
+    # driver_id = serializers.ReadOnlyField(source='driver_id.pk')
+
     # driver_id = serializers.SlugRelatedField(
     #     queryset=Driver.objects.all(), slug_field='id')
     # make = serializers.CharField()
