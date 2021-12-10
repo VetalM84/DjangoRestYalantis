@@ -7,5 +7,5 @@ urlpatterns = [
     path('drivers/driver/<int:pk>/', DriverDetail.as_view()),
     path('vehicles/vehicle/', VehicleList.as_view()),
     path('vehicles/vehicle/<int:pk>/', VehicleDetail.as_view()),
-    path('vehicles/set_driver/<int:pk>/', VehicleDetail.as_view()),
+    # path('vehicles/set_driver/<int:pk>/', VehicleDriverInOutDetail.as_view()),
 ]
