@@ -1,6 +1,4 @@
-from django.urls import path, include
-# from rest_framework.urlpatterns import format_suffix_patterns
-from rest_framework import routers
+from django.urls import path
 
 from .views import *
 
@@ -9,6 +7,5 @@ urlpatterns = [
     path('drivers/driver/<int:pk>/', DriverDetail.as_view()),
     path('vehicles/vehicle/', VehicleList.as_view()),
     path('vehicles/vehicle/<int:pk>/', VehicleDetail.as_view()),
+    path('vehicles/set_driver/<int:pk>/', VehicleDetail.as_view()),
 ]
-
-# urlpatterns = format_suffix_patterns(urlpatterns)
