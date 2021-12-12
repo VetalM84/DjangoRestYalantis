@@ -4,7 +4,7 @@ from rest_framework import generics
 from rest_framework.permissions import AllowAny
 
 from .models import Driver, Vehicle
-from .serializers import DriverSerializer, VehicleSerializer
+from .serializers import DriverSerializer, VehicleSerializer, DriverInOutSerializer
 
 
 class DriverList(generics.ListCreateAPIView):
@@ -31,10 +31,10 @@ class DriverDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 # садим/высаживаем водителя
-# class VehicleDriverInOutDetail(generics.RetrieveUpdateDestroyAPIView):
-#     permission_classes = (AllowAny,)
-#     queryset = Vehicle.objects.all()
-#     serializer_class = VehicleDriverInOutSerializer
+class DriverInOutDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Vehicle.objects.all()
+    serializer_class = DriverInOutSerializer
 
 
 class VehicleList(generics.ListCreateAPIView):

@@ -15,7 +15,7 @@ class VehicleSerializer(serializers.ModelSerializer):
         fields = ['id', 'driver_id', 'make', 'model', 'plate_number', 'created_at', 'updated_at']
 
 
-# class VehicleDriverInOutSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Driver
-#         fields = '__all__'
+class DriverInOutSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vehicle
+        fields = ['driver_id']

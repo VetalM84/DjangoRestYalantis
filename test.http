@@ -1,0 +1,28 @@
+GET http://localhost:8000/vehicles/vehicle/10/
+Accept: application/json
+###
+
+GET http://localhost:8000/vehicles/vehicle/
+Accept: application/json
+###
+
+GET http://127.0.0.1:8000/drivers/driver/?created_at__gte=10-11-2020
+Accept: application/json
+###
+
+GET http://127.0.0.1:8000/drivers/driver/
+Accept: application/json
+###
+
+GET http://127.0.0.1:8000/drivers/driver/10/
+Accept: application/json
+###
+
+
+### Send POST request with json body
+PUT http://127.0.0.1:8000/vehicles/set_driver/10/
+Content-Type: application/json
+
+{
+  "driver_id": 10
+}
