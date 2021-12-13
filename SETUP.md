@@ -9,4 +9,4 @@
 7. Делаем миграции для создания базы данных `python manage.py makemigrations && python manage.py migrate`
 8. Заполняем данными модели `Driver` и `Vehicle` &mdash; `python manage.py loaddata db.json`
 9. Запускаем локальный сервер `python manage.py runserver`
-10. Маршруты доступны в файле README.md
+10. Маршруты доступны в файле README.md и test.http

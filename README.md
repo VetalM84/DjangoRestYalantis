@@ -1,5 +1,24 @@
 # Тестовое задание для Yalantis на Django Rest Framework
 
+Розробіть REST API для парку машин з водіями 
+Створіть наступні таблиці (моделі) - Driver + Vehicle
+
+Driver:
++ id: int
++ first_name: str
++ last_name: str
++ created_at
++ updated_at
+
+Vehicle
++ id: int
++ driver_id: FK to Driver
++ make: str
++ model: str
++ plate_number: str  - format example "AA 1234 OO"  
++ created_at
++ updated_at
+
 Створіть перелік відкритих (без аутентифікацій) endpoint'ів для наступних операцій:
 Driver:
 + GET /drivers/driver/ - вивід списку водіїв
@@ -19,5 +38,5 @@ Vehicle:
 + GET /vehicles/vehicle/<vehicle_id> - отримання інформації по певній машині
 + POST /vehicles/vehicle/ - створення нової машини
 + UPDATE /vehicles/vehicle/<vehicle_id>/ - редагування машини
-+ POST /vehicles/set_driver/<vehicle_id>/ - садимо водія в машину / висаджуємо водія з машини  
++ PUT /vehicles/set_driver/<vehicle_id>/ - садимо водія в машину / висаджуємо водія з машини  
 + DELETE /vehicles/vehicle/<vehicle_id>/ - видалення машини

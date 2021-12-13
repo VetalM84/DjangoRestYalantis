@@ -1,25 +1,74 @@
-GET http://localhost:8000/vehicles/vehicle/10/
-Accept: application/json
-###
-
 GET http://localhost:8000/vehicles/vehicle/
 Accept: application/json
-###
+### вивід списку машин
 
-GET http://127.0.0.1:8000/drivers/driver/?created_at__gte=10-11-2020
+### вивід списку машин
+POST http://localhost:8000/vehicles/vehicle/
 Accept: application/json
+
+{
+    "driver_id": 9,
+    "make": "IVECO",
+    "model": "100500",
+    "plate_number": "УО 1234 ФФ"
+}
+
 ###
+GET http://localhost:8000/vehicles/vehicle/10/
+Accept: application/json
+### отримання інформації по певній машині
+
+PUT http://localhost:8000/vehicles/vehicle/10/
+Accept: application/json
+### редагування машини
+
+DELETE http://localhost:8000/vehicles/vehicle/10/
+Accept: application/json
+### видалення машини
+
+GET http://localhost:8000/vehicles/vehicle/?with_drivers=yes
+Accept: application/json
+### вивід списку машин з водіями
+
+GET http://localhost:8000/vehicles/vehicle/?with_drivers=no
+Accept: application/json
+### вивід списку машин без водіїв
 
 GET http://127.0.0.1:8000/drivers/driver/
 Accept: application/json
-###
+### вивід списку водіїв
 
+### створення нового водія
+POST http://127.0.0.1:8000/drivers/driver/
+Accept: application/json
+
+{
+    "first_name": "Петр",
+    "last_name": "Петров",
+}
+
+###
 GET http://127.0.0.1:8000/drivers/driver/10/
 Accept: application/json
-###
+### отримання інформації по певному водію
 
+PUT http://127.0.0.1:8000/drivers/driver/10/
+Accept: application/json
+### редагування водія
 
-### Send POST request with json body
+DELETE http://127.0.0.1:8000/drivers/driver/10/
+Accept: application/json
+### видалення водія
+
+GET http://127.0.0.1:8000/drivers/driver/?created_at__gte=10-11-2020
+Accept: application/json
+### вивід списку водіїв, які створені після 10-11-2021
+
+GET http://127.0.0.1:8000/drivers/driver/?created_at__lte=10-11-2020
+Accept: application/json
+### вивід списку водіїв, котрі створені до 16-11-2021
+
+### садимо водія в машину / висаджуємо водія з машини
 PUT http://127.0.0.1:8000/vehicles/set_driver/10/
 Content-Type: application/json
 
